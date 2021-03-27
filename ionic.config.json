@@ -1,0 +1,7 @@
+{
+  "name": "cthulhu-combat-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
