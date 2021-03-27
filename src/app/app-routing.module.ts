@@ -1,10 +1,26 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {HomeComponent} from "./home/home.component";
+import {CharactersListComponent} from "./characters-list/characters-list.component";
+import {EncounterListComponent} from "./encounter-list/encounter-list.component";
+import {SettingsComponent} from "./settings/settings.component";
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'home', pathMatch: 'full'
+  },
+  {
+    path: 'home', component: HomeComponent
+  },
+  {
+    path: 'characters', component: CharactersListComponent
+  },
+  {
+    path: 'encounters', component: EncounterListComponent
+  },
+  {
+    path: 'settings', component: SettingsComponent
   }
 ];
 @NgModule({
