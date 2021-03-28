@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuController} from "@ionic/angular";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,16 @@ import {MenuController} from "@ionic/angular";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
 
+  navigateTo(url: string) {
+    this.router.navigate([url]);
+  }
+
 
 }
+
+

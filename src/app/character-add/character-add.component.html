@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-item style="padding-top: 30px;">
+    <ion-label position="floating">Character Name</ion-label>
+    <ion-input [(ngModel)]="character.name" name="characterName"></ion-input>
+  </ion-item>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="saveCharacter()">
+      <ion-icon name="save-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

@@ -1,3 +1,17 @@
-<ion-content>
-  Hi
+<script src="tentacles.js"></script>
+<ion-content style="height: 100%;" id="container">
+  <ion-grid style="height: 100%;">
+    <ion-row class="ion-align-items-center" style="height: 100%">
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="auto">
+            <ion-button size="large" color="dark" (click)="navigateTo('characters')">Characters</ion-button>
+          </ion-col>
+          <ion-col size="auto">
+            <ion-button size="large" color="dark" (click)="navigateTo('encounters')">Encounters</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {CharacterService} from "../services/character.service";
 
 @Component({
   selector: 'app-characters-list',
@@ -7,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharactersListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+              public characterService: CharacterService) { }
 
   ngOnInit() {}
 
+  addCharacter() {
+    this.router.navigate(['characters/edit']);
+  }
 }

@@ -1,3 +1,18 @@
-<p>
-  characters-list works!
-</p>
+<ion-content>
+
+
+  <ion-list>
+    <div *ngFor="let character of characterService.characters;">
+      <ion-item>
+        <ion-label>{{character.name}}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addCharacter()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

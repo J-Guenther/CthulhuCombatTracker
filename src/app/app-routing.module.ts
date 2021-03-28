@@ -4,6 +4,7 @@ import {HomeComponent} from "./home/home.component";
 import {CharactersListComponent} from "./characters-list/characters-list.component";
 import {EncounterListComponent} from "./encounter-list/encounter-list.component";
 import {SettingsComponent} from "./settings/settings.component";
+import {CharacterAddComponent} from "./character-add/character-add.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'characters', component: CharactersListComponent
+  },
+  {
+    path: 'characters/edit', component: CharacterAddComponent
   },
   {
     path: 'encounters', component: EncounterListComponent
