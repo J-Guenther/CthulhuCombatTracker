@@ -14,7 +14,24 @@ export class CharacterAddComponent implements OnInit {
   constructor(private characterService: CharacterService) {
     this.character = {
       id: '',
-      name: ''
+      name: '',
+      dexterity: 0,
+      strength: 0,
+      constitution: 0,
+      size: 0,
+      power: 0,
+      healthPoints: 0,
+      majorWound: false,
+      dodge: 0,
+      numberOfAttacks: 0,
+      damageBonus: '',
+      build: 0,
+      move: 0,
+      sanity: 0,
+      magicPoints: 0,
+      luck: 0,
+      armor: 0,
+      attacks: []
     };
   }
 

@@ -16,8 +16,10 @@ export class CharacterService {
 
   save(character: Character) {
     this.characters.push(character);
-    console.log(this.characters);
+    this.saveAll();
+  }
 
+  saveAll() {
     Storage.set({
       key: this.CHARACTER_STORAGE_KEY,
       value: JSON.stringify(this.characters)
@@ -28,5 +30,13 @@ export class CharacterService {
     const characterList = await Storage.get({key: this.CHARACTER_STORAGE_KEY});
     this.characters = JSON.parse(characterList.value) || [];
     console.log(this.characters);
+  }
+
+  delete(character: Character) {
+    const index = this.characters.indexOf(character);
+    if (index > -1) {
+      this.characters.splice(index, 1);
+    }
+    this.saveAll();
   }
 }

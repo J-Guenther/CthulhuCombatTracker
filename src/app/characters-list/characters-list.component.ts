@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {CharacterService} from "../services/character.service";
+import {Character} from "../model/character";
 
 @Component({
   selector: 'app-characters-list',
@@ -9,6 +10,8 @@ import {CharacterService} from "../services/character.service";
 })
 export class CharactersListComponent implements OnInit {
 
+  deleteMode = false;
+
   constructor(private router: Router,
               public characterService: CharacterService) { }
 
@@ -16,5 +19,9 @@ export class CharactersListComponent implements OnInit {
 
   addCharacter() {
     this.router.navigate(['characters/edit']);
+  }
+
+  deleteCharacter(character: Character) {
+    this.characterService.delete(character);
   }
 }
