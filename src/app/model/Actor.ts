@@ -6,4 +6,5 @@ export interface Actor {
   currentSanity: number;
   currentMagicPoints: number;
   currentLuck: number;
+  firearmsReadied: boolean;
 }

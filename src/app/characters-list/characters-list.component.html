@@ -10,7 +10,7 @@
     </div>
   </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" [hidden]="!characterService.characters || characterService.characters.length <= 0">
     <ion-fab-button (click)="deleteMode = !deleteMode" color="danger">
       <ion-icon *ngIf="!deleteMode" name="trash"></ion-icon>
       <ion-icon *ngIf="deleteMode" name="close-outline"></ion-icon>

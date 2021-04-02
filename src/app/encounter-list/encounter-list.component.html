@@ -1,3 +1,23 @@
-<p>
-  encounter-list works!
-</p>
+<ion-content>
+  <ion-list>
+    <div *ngFor="let encounter of encounterService.encounters;">
+      <ion-item button (click)="navigateToEncounter(encounter)">
+        <ion-label>{{encounter.name}}</ion-label>
+        <ion-icon *ngIf="deleteMode" name="trash" color="danger" (click)="deleteEncounter(encounter)"></ion-icon>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" [hidden]="!encounterService.encounters || encounterService.encounters.length <= 0">
+    <ion-fab-button (click)="deleteMode = !deleteMode" color="danger">
+      <ion-icon *ngIf="!deleteMode" name="trash"></ion-icon>
+      <ion-icon *ngIf="deleteMode" name="close-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addEncounter()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

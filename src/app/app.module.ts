@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 import {CharactersListComponent} from "./characters-list/characters-list.component";
 import {CharacterAddComponent} from "./character-add/character-add.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {EncounterListComponent} from "./encounter-list/encounter-list.component";
+import {EncounterAddDialogComponent} from "./encounter-add-dialog/encounter-add-dialog.component";
 
 @NgModule({
-  declarations: [AppComponent, CharactersListComponent, CharacterAddComponent],
+  declarations: [AppComponent, CharactersListComponent, CharacterAddComponent, EncounterListComponent, EncounterAddDialogComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
