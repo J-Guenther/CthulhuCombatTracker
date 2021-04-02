@@ -3,7 +3,7 @@
 
   <ion-list>
     <div *ngFor="let character of characterService.characters;">
-      <ion-item>
+      <ion-item button (click)="navigateToCharacter(character)">
         <ion-label>{{character.name}}</ion-label>
         <ion-icon *ngIf="deleteMode" name="trash" color="danger" (click)="deleteCharacter(character)"></ion-icon>
       </ion-item>

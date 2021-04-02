@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Character} from "../model/character";
+import {Character} from "../model/Character";
 import {Plugins} from "@capacitor/core";
 
 const { Storage } = Plugins;
@@ -11,11 +11,17 @@ export class CharacterService {
 
   public characters: Character[];
   private CHARACTER_STORAGE_KEY: string = "characters";
+  public editCharacter: Character;
 
   constructor() { }
 
   save(character: Character) {
-    this.characters.push(character);
+    const index = this.characters.indexOf(character);
+    if (index > -1) {
+      this.characters[index] = character;
+    } else {
+      this.characters.push(character);
+    }
     this.saveAll();
   }
 

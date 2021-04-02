@@ -9,7 +9,6 @@ export interface Character {
   size: number;
   power: number;
   healthPoints: number;
-  majorWound: boolean;
   dodge: number;
   numberOfAttacks: number;
   damageBonus: string;

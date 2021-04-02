@@ -18,31 +18,31 @@
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Dexterity</ion-label>
-          <ion-input [(ngModel)]="character.dexterity" name="dexterity"></ion-input>
+          <ion-input [(ngModel)]="character.dexterity" (keyup)="calculateDodge()" name="dexterity"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Strength</ion-label>
-          <ion-input [(ngModel)]="character.strength" name="strength"></ion-input>
+          <ion-input [(ngModel)]="character.strength" (keyup)="calculateDamageBonusAndBuild()" name="strength"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Constitution</ion-label>
-          <ion-input [(ngModel)]="character.constitution" name="constitution"></ion-input>
+          <ion-input [(ngModel)]="character.constitution" name="constitution" (keyup)="calculateHealthPoints()"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Power</ion-label>
-          <ion-input [(ngModel)]="character.power" name="power"></ion-input>
+          <ion-input [(ngModel)]="character.power" (keyup)="calculateMagicPoints(); calculateSanity()" name="power"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Size</ion-label>
-          <ion-input [(ngModel)]="character.size" name="size"></ion-input>
+          <ion-input [(ngModel)]="character.size" (keyup)="calculateHealthPoints(); calculateDamageBonusAndBuild()" name="size"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
