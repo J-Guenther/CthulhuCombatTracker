@@ -5,6 +5,7 @@ import {CharactersListComponent} from "./characters-list/characters-list.compone
 import {EncounterListComponent} from "./encounter-list/encounter-list.component";
 import {SettingsComponent} from "./settings/settings.component";
 import {CharacterAddComponent} from "./character-add/character-add.component";
+import {EncounterCombatComponent} from "./encounter-combat/encounter-combat.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'encounters', component: EncounterListComponent
+  },
+  {
+    path: 'encounters/combat', component: EncounterCombatComponent
   },
   {
     path: 'settings', component: SettingsComponent
