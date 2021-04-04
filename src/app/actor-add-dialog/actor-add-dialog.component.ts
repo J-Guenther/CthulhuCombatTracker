@@ -53,6 +53,7 @@ export class ActorAddDialogComponent implements OnInit {
         for(let i = 0; i < value; i++) {
           const actor: Actor = {
             characterId: key,
+            character: character,
             currentHealthPoints: character.healthPoints,
             majorWound: false,
             currentAttack: 0,

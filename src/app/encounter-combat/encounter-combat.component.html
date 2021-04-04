@@ -1,14 +1,14 @@
 <ion-content>
   <div class="container">
-    <ion-slides pager="false" [options]="slideOpts" #slides>
+    <ion-slides pager="false" [options]="slideOpts" (ionSlideNextStart)="nextTurn($event)" (ionSlidePrevStart)="previousTurn($event)" (ionSlideReachEnd)="reachedRoundEnd($event)" #slides>
       <ion-slide *ngFor="let actor of encounter.actors">
-        <h1>Slide</h1>
+        <h1>{{actor.character.name}}</h1>
       </ion-slide>
     </ion-slides>
     <ion-footer>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button (click)="slides.slidePrev()">
+          <ion-button (click)="slides.slidePrev()" [disabled]="firstTurn">
             <ion-icon name="arrow-back-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -18,11 +18,13 @@
           </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button (click)="slides.slideNext()">
+          <ion-button (click)="lastTurn ? slides.slideTo(0) : slides.slideNext(); newRound(lastTurn)">
+            {{lastTurn ? 'Next Round' : ''}}
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
         <ion-title>Round: {{encounter ? encounter.currentRound : ''}}</ion-title>
+        {{encounter && encounter.currentTurn ? encounter.currentTurn.character.name : ''}}
       </ion-toolbar>
     </ion-footer>
   </div>
