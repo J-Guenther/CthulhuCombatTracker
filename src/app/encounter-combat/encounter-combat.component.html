@@ -1,6 +1,6 @@
 <ion-content>
   <div class="container">
-    <ion-slides pager="false" [options]="slideOpts" (ionSlideNextStart)="nextTurn($event)" (ionSlidePrevStart)="previousTurn($event)" (ionSlideReachEnd)="reachedRoundEnd($event)" #slides>
+    <ion-slides pager="false" [options]="slideOpts" (ionSlideTransitionStart)="change($event)" #slides>
       <ion-slide *ngFor="let actor of encounter.actors">
         <h1>{{actor.character.name}}</h1>
       </ion-slide>
@@ -8,7 +8,7 @@
     <ion-footer>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button (click)="slides.slidePrev()" [disabled]="firstTurn">
+          <ion-button (click)="prevTurn()" [disabled]="slides.isBeginning">
             <ion-icon name="arrow-back-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -18,8 +18,8 @@
           </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-button (click)="lastTurn ? slides.slideTo(0) : slides.slideNext(); newRound(lastTurn)">
-            {{lastTurn ? 'Next Round' : ''}}
+          <ion-button (click)="nextTurn()">
+            {{(isEnd) ? 'Next Round' : ''}}
             <ion-icon name="arrow-forward-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
