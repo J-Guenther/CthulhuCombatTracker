@@ -1,3 +1,23 @@
-<p>
-  actor-add-dialog works!
-</p>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let character of characterService.characters">
+      <ion-label>{{character.name}} {{addMap[character.id] ? ' (' + addMap[character.id] + ')' : ''}}</ion-label>
+      <ion-button color="primary" (click)="add(character.id)">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" (click)="remove(character.id)">
+        <ion-icon name="remove-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="dismiss()" color="danger">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addActorsToEncounter()">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
