@@ -1,31 +1,30 @@
-<ion-content>
-  <div class="container">
-    <ion-slides pager="false" [options]="slideOpts" (ionSlideTransitionStart)="change($event)" #slides>
-      <ion-slide *ngFor="let actor of encounter.actors">
-        <h1>{{actor.character.name}}</h1>
-      </ion-slide>
-    </ion-slides>
-    <ion-footer>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button (click)="prevTurn()" [disabled]="slides.isBeginning">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end">
-          <ion-button color="primary" (click)="presentModal()">
-            <ion-icon name="add"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end">
-          <ion-button (click)="nextTurn()">
-            {{(isEnd) ? 'Next Round' : ''}}
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Round: {{encounter ? encounter.currentRound : ''}}</ion-title>
-        {{encounter && encounter.currentTurn ? encounter.currentTurn.character.name : ''}}
-      </ion-toolbar>
-    </ion-footer>
-  </div>
-</ion-content>
+<div class="container">
+  <ion-slides pager="false" [options]="slideOpts" (ionSlideTransitionStart)="change($event)" #slides
+              style="overflow-y: auto;">
+    <ion-slide *ngFor="let actor of encounter.actors">
+      <app-actor-card [actor]="actor" [targets]="combatService.currentPossibleTargetActors"></app-actor-card>
+    </ion-slide>
+  </ion-slides>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="prevTurn()" [disabled]="isBeginning">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button color="primary" (click)="presentModal()">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="nextTurn()">
+          {{(isEnd) ? 'Next Round' : ''}}
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Round: {{encounter ? encounter.currentRound : ''}}</ion-title>
+      {{encounter && encounter.currentTurn ? encounter.currentTurn.character.name : ''}}
+    </ion-toolbar>
+  </ion-footer>
+</div>

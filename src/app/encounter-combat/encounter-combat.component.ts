@@ -7,6 +7,7 @@ import {ActorAddDialogComponent} from "../actor-add-dialog/actor-add-dialog.comp
 import {Actor} from "../model/Actor";
 import {CharacterService} from "../services/character.service";
 import {Character} from "../model/Character";
+import {CombatService} from "../services/combat.service";
 
 @Component({
   selector: 'app-encounter-combat',
@@ -23,11 +24,13 @@ export class EncounterCombatComponent implements OnInit, OnDestroy, AfterViewIni
 
   slideOpts = {
     initialSlide: 0,
-    speed: 400
+    speed: 400,
+    autoHeight: true
   };
 
   constructor(private encounterService: EncounterService,
               private characterService: CharacterService,
+              public combatService: CombatService,
               private modalController: ModalController) {
     this.encounter = this.encounterService.editEncounter;
   }
@@ -87,6 +90,7 @@ export class EncounterCombatComponent implements OnInit, OnDestroy, AfterViewIni
       }
     }
     this.encounter.currentTurn = this.encounter.actors[0];
+    this.combatService.initializePossibleTargets();
   }
 
   ngOnDestroy(): void {
@@ -96,8 +100,10 @@ export class EncounterCombatComponent implements OnInit, OnDestroy, AfterViewIni
   async change($event: any) {
     const index = await this.slides.getActiveIndex();
     this.encounter.currentTurn = this.encounter.actors[index];
+    this.combatService.updatePossibleTargetsForActor(this.encounter.currentTurn);
     this.isEnd = await this.slides.isEnd();
     this.isBeginning = await this.slides.isBeginning();
+    console.log(this.isBeginning);
   }
 
   async nextTurn() {

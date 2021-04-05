@@ -1,0 +1,78 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{actor.character.name}}</ion-card-title>
+  </ion-card-header>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item class="item">
+            <ion-label position="floating">Health Points</ion-label>
+            <ion-input [(ngModel)]="actor.currentHealthPoints" name="currentHealthPoints"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="item">
+            <ion-label position="floating" style="opacity: 0;">_</ion-label>
+            <ion-input [(ngModel)]="actor.character.healthPoints" name="healthPoints" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="item">
+            <ion-label position="floating">Sanity</ion-label>
+            <ion-input [(ngModel)]="actor.currentSanity" name="currentSanity"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="item">
+            <ion-label position="floating" style="opacity: 0;">_</ion-label>
+            <ion-input [(ngModel)]="actor.character.sanity" name="sanity" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="item">
+            <ion-label position="floating">Luck</ion-label>
+            <ion-input [(ngModel)]="actor.currentLuck" name="currentLuck"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item class="item">
+            <ion-label position="floating" style="opacity: 0;">_</ion-label>
+            <ion-input [(ngModel)]="actor.character.luck" name="luck" disabled="true"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-row>
+          <ion-col>
+            <ion-label>Combat</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-col size-xs="12" size-md="4">
+          <ion-item class="item">
+            <ion-label position="floating">Build</ion-label>
+            <ion-input [(ngModel)]="actor.character.build" name="build"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size-xs="12" size-md="4">
+          <ion-item class="item">
+            <ion-label position="floating">Damage Bonus</ion-label>
+            <ion-input [(ngModel)]="actor.character.damageBonus" name="damageBonus"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size-xs="12" size-md="4">
+          <ion-item class="item">
+            <ion-label position="floating">Build</ion-label>
+            <ion-input [(ngModel)]="actor.character.move" name="move"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <ion-label>Target</ion-label>
+      <ion-select interface="popover">
+        <ion-select-option *ngFor="let target of targets" [value]="target">{{target.character.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+</ion-card>
+
+

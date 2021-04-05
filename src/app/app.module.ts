@@ -13,6 +13,7 @@ import {EncounterListComponent} from "./encounter-list/encounter-list.component"
 import {EncounterAddDialogComponent} from "./encounter-add-dialog/encounter-add-dialog.component";
 import {EncounterCombatComponent} from "./encounter-combat/encounter-combat.component";
 import {ActorAddDialogComponent} from "./actor-add-dialog/actor-add-dialog.component";
+import {ActorCardComponent} from "./actor-card/actor-card.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ActorAddDialogComponent} from "./actor-add-dialog/actor-add-dialog.compo
     EncounterListComponent,
     EncounterAddDialogComponent,
     EncounterCombatComponent,
-    ActorAddDialogComponent
+    ActorAddDialogComponent,
+    ActorCardComponent
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],
