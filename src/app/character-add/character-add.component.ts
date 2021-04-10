@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Character} from "../model/Character";
 import {CharacterService} from "../services/character.service";
+import {Attack} from "../model/Attack";
 
 @Component({
   selector: 'app-character-add',
@@ -10,6 +11,7 @@ import {CharacterService} from "../services/character.service";
 export class CharacterAddComponent implements OnInit {
 
   character: Character;
+  newAttack: Attack;
 
   constructor(private characterService: CharacterService) {
     if (this.characterService.editCharacter) {
@@ -36,6 +38,13 @@ export class CharacterAddComponent implements OnInit {
         attacks: []
       };
     }
+    this.newAttack = {
+      name: '',
+      id: '',
+      formula: '',
+      impale: false,
+      withDb: false
+    };
   }
 
   ngOnInit() {
@@ -108,5 +117,24 @@ export class CharacterAddComponent implements OnInit {
     if (this.character.power) {
       this.character.magicPoints = Math.floor(+this.character.power / 5);
     }
+  }
+
+  remove(attack: Attack) {
+    const index = this.character.attacks.indexOf(attack);
+    if (index > -1) {
+      this.character.attacks.splice(index, 1);
+    }
+  }
+
+  addAttack() {
+    this.newAttack.id = '' + new Date().getTime();
+    this.character.attacks.push(this.newAttack);
+    this.newAttack = {
+      name: '',
+      id: '',
+      formula: '',
+      impale: false,
+      withDb: false
+    };
   }
 }

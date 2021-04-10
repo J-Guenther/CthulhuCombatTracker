@@ -24,25 +24,29 @@
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Strength</ion-label>
-          <ion-input [(ngModel)]="character.strength" (keyup)="calculateDamageBonusAndBuild()" name="strength"></ion-input>
+          <ion-input [(ngModel)]="character.strength" (keyup)="calculateDamageBonusAndBuild()"
+                     name="strength"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Constitution</ion-label>
-          <ion-input [(ngModel)]="character.constitution" name="constitution" (keyup)="calculateHealthPoints()"></ion-input>
+          <ion-input [(ngModel)]="character.constitution" name="constitution"
+                     (keyup)="calculateHealthPoints()"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Power</ion-label>
-          <ion-input [(ngModel)]="character.power" (keyup)="calculateMagicPoints(); calculateSanity()" name="power"></ion-input>
+          <ion-input [(ngModel)]="character.power" (keyup)="calculateMagicPoints(); calculateSanity()"
+                     name="power"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size-xs="6" size-md="3">
         <ion-item class="item">
           <ion-label position="floating">Size</ion-label>
-          <ion-input [(ngModel)]="character.size" (keyup)="calculateHealthPoints(); calculateDamageBonusAndBuild()" name="size"></ion-input>
+          <ion-input [(ngModel)]="character.size" (keyup)="calculateHealthPoints(); calculateDamageBonusAndBuild()"
+                     name="size"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -116,9 +120,59 @@
         </ion-item>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-label>Attacks</ion-label>
+      </ion-col>
+      <ion-col size="12">
+
+        <ion-item *ngFor="let attack of character.attacks">
+          <ion-label>{{attack.name}}</ion-label>
+          <ion-label>{{attack.withDb ? attack.formula + ' + DB' : attack.formula}}</ion-label>
+          <ion-label>{{attack.impale ? 'Impaling' : ''}}</ion-label>
+          <ion-button color="danger" (click)="remove(attack)">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Name</ion-label>
+                <ion-input [(ngModel)]="newAttack.name" name="attackName"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Formula</ion-label>
+                <ion-input [(ngModel)]="newAttack.formula" name="attackFormula"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Damage Bonus</ion-label>
+                <ion-checkbox [(ngModel)]="newAttack.withDb" name="attackWithDb"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6">
+              <ion-item>
+                <ion-label position="floating">Impale</ion-label>
+                <ion-checkbox [(ngModel)]="newAttack.impale" name="attackImpale"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <ion-button color="primary" (click)="addAttack()">
+                <ion-icon name="add-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
 
   </ion-grid>
-
 
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
