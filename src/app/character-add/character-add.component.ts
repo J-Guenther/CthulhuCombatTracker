@@ -137,4 +137,7 @@ export class CharacterAddComponent implements OnInit {
       withDb: false
     };
   }
+
+  // TODO Formula matching
+  // https://stackoverflow.com/questions/52252114/dd-style-compound-dice-expression-regex
 }

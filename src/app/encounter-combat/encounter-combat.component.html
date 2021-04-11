@@ -23,8 +23,7 @@
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title>Round: {{encounter ? encounter.currentRound : ''}}</ion-title>
-      {{encounter && encounter.currentTurn ? encounter.currentTurn.character.name : ''}}
+      <ion-title>Round: {{encounter ? encounter.currentRound + 1 : ''}}: {{encounter && encounter.currentTurn ? encounter.currentTurn.character.name : ''}}</ion-title>
     </ion-toolbar>
   </ion-footer>
 </div>

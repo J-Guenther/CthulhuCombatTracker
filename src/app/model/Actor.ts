@@ -10,4 +10,5 @@ export interface Actor {
   currentMagicPoints: number;
   currentLuck: number;
   firearmsReadied: boolean;
+  target: Actor;
 }

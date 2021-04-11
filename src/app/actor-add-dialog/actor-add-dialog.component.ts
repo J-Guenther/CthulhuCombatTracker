@@ -60,7 +60,8 @@ export class ActorAddDialogComponent implements OnInit {
             currentSanity: character.sanity,
             currentMagicPoints: character.magicPoints,
             currentLuck: character.luck,
-            firearmsReadied: false
+            firearmsReadied: false,
+            target: null
           }
           actors.push(actor);
         }
