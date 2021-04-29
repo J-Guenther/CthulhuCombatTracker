@@ -4,4 +4,5 @@ export interface Attack {
   id: string,
   withDb: boolean,
   impale: boolean
+  skillValue: number
 }

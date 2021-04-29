@@ -14,6 +14,7 @@ import {EncounterAddDialogComponent} from "./encounter-add-dialog/encounter-add-
 import {EncounterCombatComponent} from "./encounter-combat/encounter-combat.component";
 import {ActorAddDialogComponent} from "./actor-add-dialog/actor-add-dialog.component";
 import {ActorCardComponent} from "./actor-card/actor-card.component";
+import {AttackDialogComponent} from "./attack-dialog/attack-dialog.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ActorCardComponent} from "./actor-card/actor-card.component";
     EncounterAddDialogComponent,
     EncounterCombatComponent,
     ActorAddDialogComponent,
-    ActorCardComponent
+    ActorCardComponent,
+    AttackDialogComponent
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule],

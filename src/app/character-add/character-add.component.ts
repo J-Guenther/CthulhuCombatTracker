@@ -41,6 +41,7 @@ export class CharacterAddComponent implements OnInit {
     this.newAttack = {
       name: '',
       id: '',
+      skillValue: 0,
       formula: '',
       impale: false,
       withDb: false
@@ -132,6 +133,7 @@ export class CharacterAddComponent implements OnInit {
     this.newAttack = {
       name: '',
       id: '',
+      skillValue: 0,
       formula: '',
       impale: false,
       withDb: false
