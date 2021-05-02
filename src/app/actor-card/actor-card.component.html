@@ -70,7 +70,7 @@
       </ion-select>
     </ion-item>
   <ion-list>
-    <ion-item button *ngFor="let attack of actor.character.attacks" (click)="openAttackDialog(attack)" [disabled]="!actor.target">
+    <ion-item button *ngFor="let attack of actor.character.attacks" (click)="openAttackDialog(attack)" [disabled]="!actor?.target">
       {{attack.name}} - {{attack.withDb && actor.character.damageBonus !== 'None' ? attack.formula + ' + ' + actor.character.damageBonus : attack.formula}}
     </ion-item>
   </ion-list>

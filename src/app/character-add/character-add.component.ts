@@ -53,6 +53,13 @@ export class CharacterAddComponent implements OnInit {
   }
 
   saveCharacter() {
+    this.character.attacks.forEach(attack => {
+      attack.formula = attack.formula.replace('D', 'd');
+    })
+    this.character.damageBonus.replace('D', 'd');
+    if (isNaN(+this.character.damageBonus) && !this.character.damageBonus.includes('d')) {
+      this.character.damageBonus = '0';
+    }
     this.characterService.save(this.character);
   }
 

@@ -20,7 +20,7 @@ export class ActorCardComponent implements OnInit {
   constructor(private modalController: ModalController) { }
 
   ngOnInit() {
-
+    console.log(this.actor);
   }
 
   attackTarget(attack: Attack) {
@@ -33,20 +33,22 @@ export class ActorCardComponent implements OnInit {
   }
 
   async openAttackDialog(attack: Attack) {
-    const modal = await this.modalController.create({
-      component: AttackDialogComponent,
-      cssClass: 'my-custom-class',
-      componentProps: {
-        'initiator': this.actor,
-        'target': this.actor.target,
-        'attack': attack
-      }
-    });
-    modal.onWillDismiss().then(() => {
-    });
-    modal.onWillDismiss().then(data => {
-      console.log(data);
-    });
-    return await modal.present();
+    if (this.actor.target) {
+      const modal = await this.modalController.create({
+        component: AttackDialogComponent,
+        cssClass: 'my-custom-class',
+        componentProps: {
+          'initiator': this.actor,
+          'target': this.actor.target,
+          'attack': attack
+        }
+      });
+      modal.onWillDismiss().then(() => {
+      });
+      modal.onWillDismiss().then(data => {
+        console.log(data);
+      });
+      return await modal.present();
+    }
   }
 }
